@@ -7,8 +7,9 @@ var PartidaSchema = new Schema({
   jogador_2: {type: Schema.Types.ObjectId, ref: 'Jogador'},
   data: String,
   horario: String,
-  pontuacao_jogador_1: Number,
-  pontuacao_jogador_2: Number,
+  vitoria_jogador_1: Boolean,
+  vitoria_jogador_2: Boolean,
+  empate: Boolean,
   realizada: {type: Boolean, default: false},
 });
 

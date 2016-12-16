@@ -16,16 +16,25 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-		    <% partidas.forEach(function(partida){
-		    	%>
+		    <% partidas.forEach(function(partida){ %>
 		    	<tr>
-
  					<td><%=partida.jogador_1.nome_completo%> X <%=partida.jogador_2.nome_completo%></td>
  		    		<td><%=partida.data%></td>
 		    		<td><%=partida.horario%></td>
-		    		<td><%= partida.realizada ? (partida.jogador_1.nome_completo+" "+partida.pontuacao_jogador_1
-		    		    	+" X "+partida.pontuacao_jogador_2+" "+partida.jogador_2.nome_completo) : '-' %>	
-	    		    
+		    		<td><%
+		    			if(partida.vitoria_jogador_1){ %>
+							<%="Vitória de "+partida.jogador_1.nome_completo%>
+						<%} 
+		    			else if(partida.vitoria_jogador_2){ %>
+							<%="Vitória de "+partida.jogador_2.nome_completo%>
+	    				<% 
+	    				}
+	    				else if(partida.empate){ %>
+							<%="Empate"%>
+    					<%}
+    					else{ %>	
+							-
+    					<% }%>
 	    		    </td>
 				</tr>
 		    <% }); %>

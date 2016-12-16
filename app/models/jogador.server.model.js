@@ -9,6 +9,7 @@ var JogadorSchema = new Schema({
   vitorias: {type: Number, default: 0},
   derrotas: {type: Number, default: 0},
   empates: {type: Number, default: 0},
+  elo: {type: Number, default: 1500}
 });
 
 mongoose.model('Jogador', JogadorSchema);

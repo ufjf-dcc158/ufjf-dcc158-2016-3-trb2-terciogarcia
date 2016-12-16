@@ -12,21 +12,15 @@
 		      <th>Data de Nascimento</th>
 		      <th>Email</th>
 		      <th>Telefone</th>
-		      <th>Vitórias</th>
-		      <th>Derrotas</th>
-		      <th>Empates</th>
 		    </tr>
 		  </thead>
 		  <tbody>
 		    <% jogadores.forEach(function(jogador){ %>
 		    	<tr>
-		    		<td><%=jogador['nome_completo']%></td>
-		    		<td><%=jogador['data_nascimento']%></td>
-		    		<td><%=jogador['email']%></td>
-		    		<td><%=jogador['telefone']%></td>
-		    		<td><%=jogador['vitorias']%></td>
-		    		<td><%=jogador['derrotas']%></td>
-		    		<td><%=jogador['empates']%></td>
+		    		<td><%=jogador.nome_completo%></td>
+		    		<td><%=jogador.data_nascimento%></td>
+		    		<td><%=jogador.email%></td>
+		    		<td><%=jogador.telefone%></td>
 				</tr>
 		    <% }); %>
 		  </tbody>

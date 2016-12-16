@@ -1,6 +1,6 @@
 var Partida = require('mongoose').model('Partida');
 var Jogador = require('mongoose').model('Jogador');
-
+var Elo = require('arpad');
 
 module.exports.form = function(req, res, next) {
   Jogador.find({}, function(err, jogadores) {
@@ -8,16 +8,6 @@ module.exports.form = function(req, res, next) {
       next(err);
     } else {
       res.render('partida/cadastro',{jogadores:jogadores});
-    }
-  });
-};
-
-module.exports.formResultado = function(req, res, next) {
-  Partida.find({}).populate('jogador_1').populate('jogador_2').exec(function(err, partidas) {
-    if (err) {
-      next(err);
-    } else {
-      res.render('partida/resultado',{partidas:partidas});
     }
   });
 };
@@ -34,8 +24,9 @@ module.exports.formResultado = function(req, res, next) {
 
 module.exports.createResultado = function(req, res, next) {
   Partida.findByIdAndUpdate(req.body.partida, {$set: {
-    'pontuacao_jogador_1': req.body.pontuacao_jogador_1,
-    'pontuacao_jogador_2': req.body.pontuacao_jogador_2,
+    'vitoria_jogador_1': (req.body.resultado == 'jogador1' ? true : false),
+    'vitoria_jogador_2': (req.body.resultado == 'jogador2' ? true : false),
+    'empate': (req.body.resultado == 'empate' ? true : false),
     'realizada': true
     }}
    ).exec( function (err, partida) {
@@ -43,31 +34,51 @@ module.exports.createResultado = function(req, res, next) {
         next(err);
     }
     else{
-       atualizaJogadores(partida);
+       atualizaJogadores(partida._id);
        res.redirect('/partida');
     }
   });
 };
 
-var atualizaJogadores = function(partida) {
-  Jogador.findById(partida.jogador_1).exec(function(err, jogador1){
-    Jogador.findById(partida.jogador_2).exec(function(err, jogador2){
-      if(partida.pontuacao_jogador_1 > partida.pontuacao_jogador_2){
-        jogador1.vitorias++; 
-        jogador2.derrotas++; 
-      }
-      else if(partida.pontuacao_jogador_1 < partida.pontuacao_jogador_2){
-        jogador1.derrotas++; 
-        jogador2.vitorias++; 
+var atualizaJogadores = function(id_partida) {
+  Partida.findById(id_partida, function(err, partida){
+    if (err) {
+          next(err);
       }
       else{
-        jogador1.empates++;
-        jogador2.empates++;
-      }
+         var vitoria_jogador_1 = partida.vitoria_jogador_1;
+          var vitoria_jogador_2 = partida.vitoria_jogador_2;
+          console.log(partida);
+          var elo = new Elo();
+          Jogador.findById(partida.jogador_1).exec(function(err, jogador1){
+            Jogador.findById(partida.jogador_2).exec(function(err, jogador2){
+              if(vitoria_jogador_1){
+                jogador1.vitorias++; 
+                jogador2.derrotas++;
 
-      jogador1.save();
-      jogador2.save();
-    });
+                jogador1.elo = elo.newRatingIfWon(jogador1.elo, jogador2.elo); 
+                jogador2.elo = elo.newRatingIfLost(jogador2.elo, jogador1.elo);  
+              }
+              else if(vitoria_jogador_2){
+                jogador1.derrotas++; 
+                jogador2.vitorias++; 
+
+                jogador2.elo = elo.newRatingIfWon(jogador2.elo, jogador1.elo); 
+                jogador1.elo = elo.newRatingIfLost(jogador1.elo, jogador2.elo);  
+              }
+              else{
+                jogador1.empates++;
+                jogador2.empates++;
+
+                jogador1.elo = elo.newRatingIfTied(jogador1.elo, jogador2.elo); 
+                jogador2.elo = elo.newRatingIfTied(jogador2.elo, jogador2.elo);  
+              }
+
+              jogador1.save();
+              jogador2.save();
+            });
+          });   
+      }
   });
 };
 

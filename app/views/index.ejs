@@ -1,3 +1,33 @@
 <%- include('layout/header') %>
+<div class="content-box-large">
+	<div class="panel-heading">
+	    <div class="panel-title">Ranking</div>
+	</div>
+
+	<div class="panel-body">
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th>Jogador</th>
+		      <th>Vitórias</th>
+		      <th>Derrotas</th>
+		      <th>Empates</th>
+		      <th>Elo</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <% jogadores.forEach(function(jogador){ %>
+		    	<tr>
+		    		<td><%=jogador.nome_completo%></td>
+		    		<td><%=jogador.vitorias%></td>
+		    		<td><%=jogador.derrotas%></td>
+		    		<td><%=jogador.empates%></td>
+		    		<td><%=jogador.elo%></td>
+				</tr>
+		    <% }); %>
+		  </tbody>
+		</table>
+	</div>
+</div>
 <%- include('layout/footer') %>
 
