@@ -1,0 +1,36 @@
+{
+  "name": "trab2-lab6",
+  "version": "1.0.0",
+  "description": "Segundo trabalho da disciplina laboratório de programalção VI\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[L\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[P",
+  "main": "index.js",
+  "dependencies": {
+    "compression": "^1.6.2",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "body-parser": "^1.15.2",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.7.0",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ufjf-dcc158/ufjf-dcc158-2016-3-trb2-terciogarcia.git"
+  },
+  "keywords": [
+    "trabalho",
+    "lab6",
+    "node",
+    "express",
+    "xadrez"
+  ],
+  "author": "Tércio Garcia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ufjf-dcc158/ufjf-dcc158-2016-3-trb2-terciogarcia/issues"
+  },
+  "homepage": "https://github.com/ufjf-dcc158/ufjf-dcc158-2016-3-trb2-terciogarcia#readme"
+}

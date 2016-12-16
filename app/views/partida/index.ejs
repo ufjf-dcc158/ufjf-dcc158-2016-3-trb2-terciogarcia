@@ -1,0 +1,36 @@
+<%- include('../layout/header') %>
+
+<div class="content-box-large">
+	<div class="panel-heading">
+	    <div class="panel-title">Partidas</div>
+	</div>
+
+	<div class="panel-body">
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th>Partida</th>
+		      <th>Data</th>
+		      <th>Horário</th>
+		      <th>Resultado</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <% partidas.forEach(function(partida){
+		    	%>
+		    	<tr>
+
+ 					<td><%=partida.jogador_1.nome_completo%> X <%=partida.jogador_2.nome_completo%></td>
+ 		    		<td><%=partida.data%></td>
+		    		<td><%=partida.horario%></td>
+		    		<td><%= partida.realizada ? (partida.jogador_1.nome_completo+" "+partida.pontuacao_jogador_1
+		    		    	+" X "+partida.pontuacao_jogador_2+" "+partida.jogador_2.nome_completo) : '-' %>	
+	    		    
+	    		    </td>
+				</tr>
+		    <% }); %>
+		  </tbody>
+		</table>
+	</div>
+</div>
+<%- include('../layout/footer') %>

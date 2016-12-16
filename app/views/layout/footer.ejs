@@ -1,0 +1,48 @@
+		  	
+		  	</div>
+		</div>
+    </div>	
+
+    <footer>
+         <div class="container">
+         
+            <div class="copy text-center">
+               Copyright 2014 <a href='https://github.com/terciogarcia'>Tércio Garcia</a>
+            </div>
+            
+        </div>
+    </footer>
+
+    <!-- jQuery-->
+    <script src="/js/jquery.min.js"></script>
+
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/custom.js"></script>
+    
+    <script src="/js/bootstrap-datepicker.min.js"></script> 
+    <script src="/js/bootstrap-timepicker.min.js"></script> 
+    <script src="/js/bootstrap-datepicker.pt-BR.min.js"></script> 
+
+     <script type="text/javascript">
+        $(function () {
+            $('.datepicker').datepicker({
+              language: "pt-BR",
+              format: "dd/mm/yyyy",
+            });
+
+            $('.timepicker').timepicker({
+              defaultTime: false,
+              showMeridian: false
+            });
+
+            $('.numerical').keyup(function(e){
+              if (/\D/g.test(this.value))
+              {
+                // Filter non-digits from input value.
+                this.value = this.value.replace(/\D/g, '');
+              }
+            });
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<%- include('../layout/header') %>
+<div class="content-box-large">
+	<div class="panel-heading">
+	    <div class="panel-title">Cadastrar Jogador</div>
+	</div>
+
+	<div class="panel-body">
+		<form class="form-horizontal" method="post" action="" role="form">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label class="col-sm-4 control-label">Nome Completo</label>
+					<div class="col-sm-8">
+						<input required type="text" name="nome_completo" class="form-control">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-4 control-label">Data de Nascimento</label>
+					<div class="col-sm-8">
+						<input required type="text" name="data_nascimento" class="form-control datepicker">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-4 control-label">Email</label>
+					<div class="col-sm-8">
+						<input required type="text" name="email" class="form-control">
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Telefone</label>
+					<div class="col-sm-8">
+						<input required type="text" name="telefone" class="form-control numerical">
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary">Cadastrar</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<%- include('../layout/footer') %>
+
