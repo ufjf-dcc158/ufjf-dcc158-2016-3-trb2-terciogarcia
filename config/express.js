@@ -11,7 +11,7 @@ module.exports = function() {
   var app = express();
   if (process.env.NODE_ENV == 'devel') {
     app.use(morgan('dev'));
-  } else if (process.env.NODE_ENV == 'prod') {
+  } else if (process.env.NODE_ENV == 'production') {
     app.use(compression());
   }
   app.use(express.static('./assets'));
