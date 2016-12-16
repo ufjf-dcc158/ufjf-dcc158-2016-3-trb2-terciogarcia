@@ -1,7 +1,7 @@
 {
   "name": "trab2-lab6",
   "version": "1.0.0",
-  "description": "Segundo trabalho da disciplina laboratório de programalção VI\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[L\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[P",
+  "description": "Segundo trabalho da disciplina laboratório de programalção VI",
   "main": "index.js",
   "dependencies": {
     "compression": "^1.6.2",
