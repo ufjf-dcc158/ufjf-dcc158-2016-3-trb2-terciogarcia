@@ -48,7 +48,6 @@ var atualizaJogadores = function(id_partida) {
       else{
          var vitoria_jogador_1 = partida.vitoria_jogador_1;
           var vitoria_jogador_2 = partida.vitoria_jogador_2;
-          console.log(partida);
           var elo = new Elo();
           Jogador.findById(partida.jogador_1).exec(function(err, jogador1){
             Jogador.findById(partida.jogador_2).exec(function(err, jogador2){
